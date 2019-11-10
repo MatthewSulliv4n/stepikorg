@@ -24,3 +24,13 @@ class ProductPage(BasePage):
     def assert_product_price_in_alert(self):
         self.assert_text_in_alert(ProductPageLocators.PRICE_PRODUCT,
                                   ProductPageLocators.PRICE_PRODUCT_ALERT_MSG)
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(
+            *ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def success_message_is_disappeared(self):
+        assert self.is_disappeared(
+            *ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
